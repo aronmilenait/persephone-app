@@ -41,7 +41,7 @@ def edit_task(task_id):
 
     task = Task.query.get(task_id)
     if task:
-        task.task = task_title  # Update the task title
+        task.task = task_title  
         db.session.commit()
 
     return redirect(url_for('index'))
