@@ -1,0 +1,25 @@
+# Python virtual environment
+venv/
+
+# IDE/Editor files
+.vscode/
+.idea/
+
+# Compiled Python files
+*.pyc
+__pycache__/
+
+# Node.js dependencies
+node_modules/
+
+# Environment variables
+.env
+
+# Logs and temporary files
+*.log
+*.tmp
+
+# Compiled output
+dist/
+build/
+*.egg-info/

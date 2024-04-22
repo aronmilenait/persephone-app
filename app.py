@@ -35,13 +35,13 @@ def add_task():
 
     return redirect(url_for('index'))
 
-@app.route('/tasks/<int:task_id>/edit', methods=['POST'])
+@app.route('/edit_task/<int:task_id>', methods=['POST'])
 def edit_task(task_id):
-    task_title = request.form['task']
+    edited_task_title = request.form.get('task')
 
     task = Task.query.get(task_id)
     if task:
-        task.task = task_title  
+        task.task = edited_task_title
         db.session.commit()
 
     return redirect(url_for('index'))
