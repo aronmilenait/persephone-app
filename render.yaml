@@ -1,0 +1,5 @@
+services:
+  - name: persephone-app
+    env: python=3.11.2
+    buildCommand: pip install -r requirements.txt
+    startCommand: gunicorn -b 0.0.0.0:$PORT app:app
