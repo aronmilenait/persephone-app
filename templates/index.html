@@ -52,6 +52,11 @@
             Add Task
           </button>
         </form>
+
+        {% if error_message %}
+        <p class="text-red-200 text-center mb-4">{{ error_message }}</p>
+        {% endif %}
+
         <ul>
           {% for task in tasks %}
           <li class="bg-rose-800 text-white p-3 rounded mb-4">

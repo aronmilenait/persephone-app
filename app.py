@@ -20,6 +20,10 @@ class Task(db.Model):
 with app.app_context():
     db.create_all()
 
+def contains_disallowed_characters(text):
+    disallowed_chars = {';', '<', '>', '-', '/'}
+    return any(char in disallowed_chars for char in text)
+
 @app.route('/')
 def index():
     tasks = Task.query.all()
@@ -28,6 +32,16 @@ def index():
 @app.route('/tasks/add', methods=['POST'])
 def add_task():
     task_title = request.form['task']
+    
+    if len(task_title) > 55:
+        error_message = 'Task must be less than 55 characters'
+        tasks = Task.query.all()
+        return render_template('index.html', tasks=tasks, error_message=error_message)
+    
+    if contains_disallowed_characters(task_title):
+        error_message = 'Task contains disallowed characters'
+        tasks = Task.query.all()
+        return render_template('index.html', tasks=tasks, error_message=error_message)
 
     new_task = Task(task=task_title)
     db.session.add(new_task)
@@ -38,6 +52,16 @@ def add_task():
 @app.route('/edit_task/<int:task_id>', methods=['POST'])
 def edit_task(task_id):
     edited_task_title = request.form.get('task')
+    
+    if len(edited_task_title) > 55:
+        error_message = 'Task must be less than 55 characters'
+        tasks = Task.query.all()
+        return render_template('index.html', tasks=tasks, error_message=error_message)
+    
+    if contains_disallowed_characters(edited_task_title):
+        error_message = 'Task contains disallowed characters'
+        tasks = Task.query.all()
+        return render_template('index.html', tasks=tasks, error_message=error_message)
 
     task = Task.query.get(task_id)
     if task:
