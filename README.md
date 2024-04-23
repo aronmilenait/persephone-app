@@ -13,6 +13,7 @@ Persephone is a simple task management app developed with Python and Flask. This
 - Add new tasks to the list.
 - Edit existing tasks.
 - Delete tasks from the list.
+- Input validation to prevent task titles exceeding 55 characters or containing disallowed characters.
 
 ## Getting Started
 
