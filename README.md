@@ -1,6 +1,8 @@
 # Persephone App
 Persephone is a simple task management app developed with Python and Flask. This project was created as a learning exercise in Python programming and web development. The app's name and look is inspired by the Greek goddess Persephone.
 
+![1713899334363](https://github.com/aronmilenait/persephone-app/assets/134554294/6b8749d1-42ca-4579-8935-24cfbe563f8f)
+
 ## Technologies Used
 
 - **Python**: Programming language used for the backend logic.
